@@ -33,7 +33,8 @@
         ],
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
-        ],
+			"@symfony-scripts"        
+		],
         "post-update-cmd": [
             "@symfony-scripts"
         ]
