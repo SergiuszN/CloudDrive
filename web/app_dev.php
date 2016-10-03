@@ -16,8 +16,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 	array(
 	'127.0.0.1', 
 	'::1',
-	'http://vps269738.ovh.net/,
-	'https://vps269738.ovh.net/)) || php_sapi_name() === 'cli-server')
+	'http://vps269738.ovh.net/',
+	'https://vps269738.ovh.net/')) || php_sapi_name() === 'cli-server')
 ) {
     header('HTTP/1.0 403 Forbidden');
     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
