@@ -1,0 +1,3 @@
+cloud_drive_homepage:
+    path:     /
+    defaults: { _controller: CloudDriveBundle:Default:index }
