@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CloudDrive</title>
 
+    {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/clouddrive/vendor/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/clouddrive/css/index.css') }}">
+    {% endblock %}
 </head>
 <body>
-CloudDrive main page
-<script src="{{ asset('bundles/clouddrive/js/scripts.min.js') }}"></script>
+{% block content %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/clouddrive/js/scripts.min.js') }}"></script>
+{% endblock %}
 </body>
 </html>

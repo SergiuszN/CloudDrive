@@ -10,4 +10,10 @@ class DefaultController extends Controller
     {
         return $this->render('CloudDriveBundle::layout.html.twig');
     }
+
+    public function apiTestPageAction()
+    {
+        die('test api page!');
+        return $this->render('CloudDriveBundle::layout.html.twig');
+    }
 }

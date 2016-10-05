@@ -1,3 +1,8 @@
 cloud_drive_homepage:
     path:     /
     defaults: { _controller: CloudDriveBundle:Default:index }
+api_first_page:
+    path: /api/test-page/{name}
+    defaults: { _controller: CloudDriveBundle:Default:apiTestPage }
+    requirements:
+        name: '[A-Za-z]+'
