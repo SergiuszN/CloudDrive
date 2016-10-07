@@ -1,5 +1,7 @@
 {% extends '@CloudDrive/CloudDriveViews/layout.html.twig' %}
 
 {% block content %}
-    {% block fos_user_content %}{% endblock %}
+    <div id="fos_user_bundle_placeholder">
+        {% block fos_user_content %}{% endblock %}
+    </div>
 {% endblock %}
