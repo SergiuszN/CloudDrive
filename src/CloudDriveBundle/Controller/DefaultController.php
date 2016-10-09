@@ -11,7 +11,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CloudDriveBundle::layout.html.twig');
+        return $this->render('CloudDriveBundle:CloudDriveViews:content.html.twig');
     }
 
     public function userAction($userName)
