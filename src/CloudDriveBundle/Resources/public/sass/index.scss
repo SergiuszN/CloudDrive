@@ -6,6 +6,7 @@
 $font-stack: Helvetica, sans-serif;
 $font-logo: 'Poiret One', helvetica;
 $primary-color: #ecf0f1;
+$primary-color-trans: rgba(236,240,241,0.7);
 $second-color: #CD7A36;
 $dark-color: #555;
 $primary-font-size: 64px;
@@ -13,6 +14,12 @@ $primary-font-size: 64px;
 {
   width: $width;
   border-top: 3px solid $second-color;
+}
+@mixin focus()
+{
+  border-color: rgba(205, 122, 54, 0.8);
+  box-shadow: 0 1px 1px rgba(205, 122, 54, 0.075) inset, 0 0 8px rgba(205, 122, 54, 0.6);
+  outline: 0 none;
 }
 @keyframes fadein {
   from { opacity: 0; }
@@ -84,4 +91,63 @@ body {
   margin: auto;
   @include line(40px);
   animation: fadein 5s;
+}
+.login-well
+{
+  font-family: $font-stack;
+  background-color: $primary-color-trans;
+  border:none;
+  text-align: left;
+  color:$dark-color;
+  width: 300px;
+  margin: auto;
+  padding-bottom: 5px;
+  label
+  {
+    font-size: 15px;
+  }
+  .login,.password
+  {
+    margin-bottom: 20px;
+    border:none;
+    &:focus
+    {
+     @include focus();
+    }
+  }
+  .remember
+  {
+    &:hover
+    {
+      @include focus();
+      border: 1px solid $second-color;
+    }
+  }
+  .signup
+  {
+    background-color: $second-color;
+    color:$primary-color;
+    border-radius: 0%;
+    border: none;
+    width:100%;
+    &:hover
+    {
+      background-color: $primary-color;
+      color:$second-color;
+    }
+  }
+  .register
+  {
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center;
+    a{
+      cursor: pointer;
+      color:$second-color;
+      &:hover
+      {
+        color: $second-color;
+      }
+    }
+  }
 }

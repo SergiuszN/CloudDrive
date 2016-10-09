@@ -3,21 +3,29 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-<div class="well">
-    dupadupadupa
+<div class="logo-box">
+<div class="name-box">
+    <h1 id="name">Cloud Drive</h1>
+</div>
+<div class="well login-well">
     <form class="form-group" action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <label for="username">{{ 'Login'|trans }}</label>
-        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <label for="username" id="lb-login">{{ 'Login'|trans }}</label>
+        <input type="text" class="form-control login" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-        <label for="password">{{ 'Password'|trans }}</label>
-        <input type="password" class="form-control" id="password" name="_password" required="required" />
+        <label for="password" id="lb-pass">{{ 'Password'|trans }}</label>
+        <input type="password" class="form-control password" id="password" name="_password" required="required" />
 
         <div class="checkbox">
-            <label><input type="checkbox" class="checkbox" id="remember_me" name="_remember_me" value=""/>{{ 'Remember me'|trans }}</label>
+            <label><input type="checkbox" class="checkbox remember" id="remember_me" name="_remember_me" value=""/>{{ 'Remember me'|trans }}</label>
         </div>
 
-        <input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{ 'Sign Up'|trans }}" />
+        <input type="submit" class="btn btn-primary signup" id="_submit" name="_submit" value="{{ 'Sign Up'|trans }}" />
+
+        <div class="register">
+            No account? <a href="{{ path("fos_user_registration_register") }}">Register!</a>
+        </div>
     </form>
+</div>
 </div>
