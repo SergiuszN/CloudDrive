@@ -1,25 +1,39 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="logo-box">
+    <div class="name-box">
+        <h1 id="name">Cloud Drive</h1>
+    </div>
+    <div class="well register-well">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+         {{ form_errors(form) }}
+        <div class="input">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email, {'attr':{'class':'form-control email'}}) }}
+            {{ form_errors(form.email) }}
+        </div>
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-     {{ form_errors(form) }}
-<div>
-    {{ form_label(form.email) }}
-    {{ form_errors(form.email) }}
-    {{ form_widget(form.email) }}
+        <div class="input">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username,{'attr':{'class':'form-control username'}}) }}
+            {{ form_errors(form.username,{'attr':{'class':'error'}}) }}
+        </div>
+
+
+
+        <div class="input">
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first,{'attr':{'class':'form-control pass'}}) }}
+            {{ form_errors(form.plainPassword.first,{'attr':{'class':'error'}}) }}
+        </div>
+
+        <div class="input">
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second,{'attr':{'class':'form-control verpass'}}) }}
+            {{ form_errors(form.plainPassword.second,{'attr':{'class':'error'}}) }}
+        </div>
+
+        <input type="submit" class="btn btn-primary register" value="{{ 'Register'|trans }}" />
+    {{ form_end(form) }}
+    </div>
 </div>
 
-<div>
-    {{ form_label(form.username) }}
-    {{ form_errors(form.username) }}
-    {{ form_widget(form.username) }}
-</div>
-
-<div>
-    {{ form_errors(form.plainPassword) }}
-    {{ form_widget(form.plainPassword) }}
-</div>
-
-<div>
-    <input type="submit" value="{{ 'registration.submit'|trans }}" />
-</div>
-{{ form_end(form) }}

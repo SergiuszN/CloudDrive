@@ -9,6 +9,7 @@ $primary-color: #ecf0f1;
 $primary-color-trans: rgba(236,240,241,0.7);
 $second-color: #CD7A36;
 $dark-color: #555;
+$error-color:#e74c3c;
 $primary-font-size: 64px;
 @mixin line($width)
 {
@@ -92,7 +93,7 @@ body {
   @include line(40px);
   animation: fadein 5s;
 }
-.login-well
+.login-well,.register-well
 {
   font-family: $font-stack;
   background-color: $primary-color-trans;
@@ -106,7 +107,7 @@ body {
   {
     font-size: 15px;
   }
-  .login,.password
+  .username,.email,.pass,.verpass
   {
     margin-bottom: 20px;
     border:none;
@@ -123,23 +124,25 @@ body {
       border: 1px solid $second-color;
     }
   }
-  .signup
+  .signup,.register
   {
     background-color: $second-color;
     color:$primary-color;
     border-radius: 0%;
+    margin-bottom: 20px;
     border: none;
     width:100%;
+    font-family: $font-logo;
+    font-size: 20px;
     &:hover
     {
       background-color: $primary-color;
       color:$second-color;
     }
   }
-  .register
+  .create
   {
     font-size: 15px;
-    margin-top: 20px;
     text-align: center;
     a{
       cursor: pointer;
@@ -148,6 +151,14 @@ body {
       {
         color: $second-color;
       }
+    }
+  }
+  ul{
+    padding: 0;
+    li{
+      list-style: none;
+      color:$error-color;
+      font-weight: bold;
     }
   }
 }
