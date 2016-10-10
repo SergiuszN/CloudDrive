@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
                 'options' => array('translation_domain' => 'FOSUserBundle'),
                 'first_options' => array('label' => 'Password'),
                 'second_options' => array('label' => 'Verify password'),
-                'invalid_message' => 'fos_user.password.mismatch',
+                'invalid_message' => 'Password mismatch',
             ))
         ;
     }
