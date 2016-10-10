@@ -5,4 +5,4 @@ cloud_drive_api_main_page:
     path: /api/main/{path}
     defaults: { _controller: CloudDriveBundle:Api:mainPage, path: '' }
     requirements:
-        path: '^[\w:]+'
+        path: '^[\w:!]+'
