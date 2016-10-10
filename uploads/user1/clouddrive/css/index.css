@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Poiret One';
+  src: url("../vendor/fonts/PoiretOne-Regular.ttf"); }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+body {
+  font: 100% "Poiret One", helvetica;
+  color: #ecf0f1;
+  background: url("../img/pexels-photo-31042.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+.logo-box {
+  position: absolute;
+  color: #ecf0f1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center; }
+
+.logo-box h1, .logo-box h2 {
+  margin: 10px auto; }
+
+#name {
+  font-family: 'Poiret One', helvetica;
+  color: #ecf0f1;
+  font-size: 64px;
+  animation: fadein 4s; }
+
+#subtitle {
+  padding: 30px;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 15px;
+  animation: fadein 5s; }
+
+.get {
+  margin: 20px; }
+  .get .get-started {
+    text-decoration: none;
+    background-color: #ecf0f1;
+    color: #555;
+    margin: 20px;
+    border-radius: 0%;
+    border: none;
+    padding: 15px 20px;
+    font-size: 25px;
+    animation: fadein 6s; }
+    .get .get-started:hover {
+      background-color: #CD7A36;
+      color: #ecf0f1; }
+
+.line {
+  margin: auto;
+  width: 40px;
+  border-top: 3px solid #CD7A36;
+  animation: fadein 5s; }
+
+.login-well {
+  font-family: Helvetica, sans-serif;
+  background-color: rgba(236, 240, 241, 0.7);
+  border: none;
+  text-align: left;
+  color: #555;
+  width: 300px;
+  margin: auto;
+  padding-bottom: 5px; }
+  .login-well label {
+    font-size: 15px; }
+  .login-well .login, .login-well .password {
+    margin-bottom: 20px;
+    border: none; }
+    .login-well .login:focus, .login-well .password:focus {
+      border-color: rgba(205, 122, 54, 0.8);
+      box-shadow: 0 1px 1px rgba(205, 122, 54, 0.075) inset, 0 0 8px rgba(205, 122, 54, 0.6);
+      outline: 0 none; }
+  .login-well .remember:hover {
+    border-color: rgba(205, 122, 54, 0.8);
+    box-shadow: 0 1px 1px rgba(205, 122, 54, 0.075) inset, 0 0 8px rgba(205, 122, 54, 0.6);
+    outline: 0 none;
+    border: 1px solid #CD7A36; }
+  .login-well .signup {
+    background-color: #CD7A36;
+    color: #ecf0f1;
+    border-radius: 0%;
+    border: none;
+    width: 100%; }
+    .login-well .signup:hover {
+      background-color: #ecf0f1;
+      color: #CD7A36; }
+  .login-well .register {
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center; }
+    .login-well .register a {
+      cursor: pointer;
+      color: #CD7A36; }
+      .login-well .register a:hover {
+        color: #CD7A36; }

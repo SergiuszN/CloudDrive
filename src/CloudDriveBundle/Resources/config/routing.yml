@@ -1,8 +1,8 @@
 cloud_drive_homepage:
     path:     /
     defaults: { _controller: CloudDriveBundle:Default:index }
-cloud_drive_user_page:
-    path: /drive/{userName}
-    defaults: { _controller: CloudDriveBundle:Default:user }
+cloud_drive_api_main_page:
+    path: /api/main/{path}
+    defaults: { _controller: CloudDriveBundle:Api:mainPage, path: '' }
     requirements:
-        userName: '^[\w]+'
+        path: '^[\w:]+'
