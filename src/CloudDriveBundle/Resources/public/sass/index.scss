@@ -109,7 +109,6 @@ body {
   }
   .username,.email,.pass,.verpass
   {
-    margin-bottom: 20px;
     border:none;
     &:focus
     {
@@ -128,8 +127,8 @@ body {
   {
     background-color: $second-color;
     color:$primary-color;
-    border-radius: 0%;
     margin-bottom: 20px;
+    border-radius: 0%;
     border: none;
     width:100%;
     font-family: $font-logo;
@@ -139,6 +138,10 @@ body {
       background-color: $primary-color;
       color:$second-color;
     }
+  }
+  .input
+  {
+    margin-bottom: 20px;
   }
   .create
   {
@@ -158,7 +161,7 @@ body {
     li{
       list-style: none;
       color:$error-color;
-      font-weight: bold;
+      font-size: 12px;
     }
   }
 }

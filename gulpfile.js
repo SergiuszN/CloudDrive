@@ -27,7 +27,7 @@ gulp.task('sass:build', function(done){
         s.end();
     });
 
-    return gulp.src('./src/CloudDriveBundle/Resources/public/sass/index.scss').
+    return gulp.src('./src/CloudDriveBundle/Resources/public/sass/drive.scss').
             pipe(s).pipe(gulp.dest('./web/bundles/clouddrive/css'))
 });
 

@@ -19,6 +19,7 @@ class DefaultController extends Controller
 
         if ($user) {
             $view = 'CloudDriveBundle:CloudDriveViews/drive:main.html.twig';
+
         }
 
         return $this->render($view, $parameters);

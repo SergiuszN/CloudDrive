@@ -11,11 +11,15 @@
     <form class="form-group" action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <label for="username" id="lb-login">{{ 'Username'|trans }}</label>
-        <input type="text" class="form-control username" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <div class="input">
+            <label for="username" id="lb-login">{{ 'Username'|trans }}</label>
+            <input type="text" class="form-control username" id="username" name="_username" value="{{ last_username }}" required="required" />
+        </div>
 
-        <label for="password" id="lb-pass">{{ 'Password'|trans }}</label>
-        <input type="password" class="form-control pass" id="password" name="_password" required="required" />
+        <div class="input">
+            <label for="password" id="lb-pass">{{ 'Password'|trans }}</label>
+            <input type="password" class="form-control pass" id="password" name="_password" required="required" />
+        </div>
 
         <div class="checkbox">
             <label><input type="checkbox" class="checkbox remember" id="remember_me" name="_remember_me" value=""/>{{ 'Remember me'|trans }}</label>
