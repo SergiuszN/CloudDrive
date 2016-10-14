@@ -5,3 +5,76 @@
   color: #333;
   padding: 10px;
 }
+
+/* header row */
+.files_header_row {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 12px;
+  color: #737373;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.files_header_fav {
+  width: 10%;
+  float: left;
+}
+
+.files_header_check {
+  width: 5%;
+  float: left;
+}
+
+.files_header_name {
+  width: 35%;
+  float: left;
+}
+
+.files_header_share, .files_header_menu {
+  width: 5%;
+  float: left;
+}
+
+.files_header_size, .files_header_mod {
+  width: 20%;
+  float: left;
+}
+
+/* file row */
+.files_row {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  &:hover {
+    background: #fff;
+  }
+}
+
+.files_fav {
+  width: 10%;
+  float: left;
+}
+
+.files_check {
+  width: 5%;
+  float: left;
+}
+
+.files_name {
+  width: 35%;
+  float: left;
+}
+
+.files_share, .files_menu {
+  width: 5%;
+  float: left;
+}
+
+.files_size, .files_mod {
+  width: 20%;
+  float: left;
+}
+

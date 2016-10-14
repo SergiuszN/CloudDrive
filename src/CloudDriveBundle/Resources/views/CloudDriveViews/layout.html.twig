@@ -13,8 +13,8 @@
     {% endblock %}
 </head>
 <body>
-<div id="url_base" style="display: none;">{{ path('cloud_drive_homepage') }}</div>
-<div id="url_api_files" style="display: none;">{{ path('cloud_drive_api_main_page') }}</div>
+<div id="url_base" style="display: none;">{{ absolute_url(path('cloud_drive_homepage')) }}</div>
+<div id="url_api_files" style="display: none;">{{ absolute_url(path('cloud_drive_api_main_page')) }}</div>
 {% block content %}{% endblock %}
 
 {% block javascripts %}

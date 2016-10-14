@@ -51,6 +51,7 @@ gulp.task('scripts:build', function(){
         ],
         local: [
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_loader.js',
+            './src/CloudDriveBundle/Resources/public/js/breadcrumb.js',
         ]
     };
 
@@ -64,7 +65,7 @@ gulp.task('scripts:build', function(){
     .pipe(concat('scripts.js'))
     // .pipe(gulp.dest('./assets/js/'))
     .pipe(rename('scripts.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./web/bundles/clouddrive/js/'));
 });
 
