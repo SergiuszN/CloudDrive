@@ -7,7 +7,7 @@ $font-stack: Helvetica, sans-serif;
 $font-logo: 'Poiret One', helvetica;
 $primary-color: #ecf0f1;
 $second-color: #CD7A36;
-$dark-color: #555;
+$dark-color: #222;
 body
 {
 
@@ -17,6 +17,7 @@ body
 {
   border-radius: 0;
   border: none;
+  margin-bottom: 0;
   .navbar-header
   {
     .navbar-brand {
@@ -34,6 +35,52 @@ body
           color: $second-color;
         }
       }
+      .navbar-btn
+      {
+        .btn-signout
+        {
+          border-radius: 0;
+          border: 2px solid $second-color;
+          background-color: $dark-color;
+          color: $second-color;
+          margin-left: 15px;
+          margin-right: 15px;
+          &:hover
+          {
+            color:$dark-color;
+            background-color: $second-color;
+          }
+        }
+      }
     }
+  }
+}
+.left-side
+{
+  padding-left: 0;
+  padding-right: 0;
+  .menu
+  {
+    .menu-item
+    {
+      border-radius: 0;
+      font-size: 16px;
+      border: none;
+
+      &:hover
+      {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.footer
+{
+  text-align: right;
+  font-size: 18px
+;
+  .fa-heart
+  {
+    color:darkred;
   }
 }
