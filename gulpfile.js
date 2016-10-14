@@ -50,7 +50,7 @@ gulp.task('scripts:build', function(){
             './src/CloudDriveBundle/Resources/public/vendor/js/bootstrap.min.js',
         ],
         local: [
-            //'./src/IdeaSpot/BrandrootBundle/Resources/public/js/brandlytics.js',
+            './src/CloudDriveBundle/Resources/public/js/file_loader/file_loader.js',
         ]
     };
 
