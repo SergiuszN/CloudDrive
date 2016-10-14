@@ -26,11 +26,11 @@
         pathArray.pop();
         var breadcrumbHtmlArray = pathArray.slice();
         for (var i=0;i<pathArray.length;i++) {
-            var class_active = '';
             if (i == pathArray.length-1) {
-                class_active = ' class="active"';
+                breadcrumbHtmlArray[i] = '<li class="active">'+breadcrumbHtmlArray[i]+'</li>';
+            } else {
+                breadcrumbHtmlArray[i] = '<li><a href="' + getLink(pathArray, i) + '">'+breadcrumbHtmlArray[i]+'</a></li>';
             }
-            breadcrumbHtmlArray[i] = '<li><a href="' + getLink(pathArray, i) + '" '+class_active+'>'+breadcrumbHtmlArray[i]+'</a></li>';
         }
         return breadcrumbHtmlArray;
     }
