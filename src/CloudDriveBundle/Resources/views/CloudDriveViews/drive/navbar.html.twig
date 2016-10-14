@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">CloudDrive</a>
+            <a class="navbar-brand" href="{{ path('cloud_drive_homepage') }}">CloudDrive</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -14,7 +14,7 @@
                 </ul>
             </li>
             <li><p class="navbar-btn">
-                    <a href="#" class="btn btn-default btn-signout">Sign Out</a></p></li>
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-signout">Sign Out</a></p></li>
         </ul>
     </div>
 </nav>
