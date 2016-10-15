@@ -10,9 +10,48 @@ class ApiController extends Controller
 {
     public function mainPageAction($path = 'home:')
     {
+        $response = new JsonResponse();
+        $directories = $this->getBaseDirectories($path);
+
+        // scan dir and remove '.' from list and '..' if is home folder
+        $list = scandir($directories->pathToOpen);
+        array_shift($list);
+        if ($directories->pathToOpen == $directories->userDir) {
+            array_shift($list);
+        }
+
+        $dir = array();
+        foreach ($list as $key => $file) {
+            if (is_dir($directories->pathToOpen . $file)) {
+                $dir['directory'][] = array($file, $this->folderSize($directories->pathToOpen . $file), filemtime($directories->pathToOpen . $file)*1000);
+            } else {
+                $dir['file'][] = array($file, filesize($directories->pathToOpen . $file), filemtime($directories->pathToOpen . $file)*1000);
+            }
+        }
+
+        $response->setData(array(
+            'url' => $this->generateUrl('cloud_drive_api_main_page', array(), true) . '/',
+            'folder' => str_replace('/', ':', 'home:' . str_replace($directories->userDir, '', $directories->pathToOpen)),
+            'dir' => $dir,
+        ));
+        return $response;
+    }
+
+    public function uploadAction($path = 'home:') {
+        $directories = $this->getBaseDirectories($path);
+
+        $uploaddir = $directories->pathToOpen;
+        $uploadfile = $uploaddir.basename($_FILES['uploadfile']['name']);
+        copy($_FILES['uploadfile']['tmp_name'], $uploadfile);
+        unlink($_FILES['uploadfile']['tmp_name']);
+
+        die();
+    }
+
+    // helper functions -----------------------------------------------------------------
+    protected function getBaseDirectories($path) {
         /* @var User $user */
         $user = $this->getUser();
-        $response = new JsonResponse();
 
         // replace path variable
         $path = str_replace('home:', '', $path);
@@ -31,7 +70,6 @@ class ApiController extends Controller
             $pathToOpen = $userDir;
         }
 
-
         // create user folder if not exist
         if (!file_exists($userDir)) {
             mkdir($userDir);
@@ -39,60 +77,13 @@ class ApiController extends Controller
 
         // safety block limited access over user folder
         if (strrpos($pathToOpen, $userDir) === false) {
-            return $response;
+            die();
         }
 
-        // scan dir and remove '.' from list and '..' if is home folder
-        $list = scandir($pathToOpen);
-        array_shift($list);
-        if ($pathToOpen == $userDir) {
-            array_shift($list);
-        }
-
-        $dir = array();
-
-        foreach ($list as $key => $file) {
-            if (is_dir($pathToOpen . $file)) {
-                $dir['directory'][] = array($file, $this->folderSize($pathToOpen . $file), filemtime($pathToOpen . $file)*1000);
-            } else {
-                $dir['file'][] = array($file, filesize($pathToOpen . $file), filemtime($pathToOpen . $file)*1000);
-            }
-        }
-
-        $parameters = array(
-            'url' => $this->generateUrl('cloud_drive_api_main_page', array(), true) . '/',
-            'folder' => str_replace('/', ':', 'home:' . str_replace($userDir, '', $pathToOpen)),
-            'dir' => $dir,
+        return (object) array(
+            'pathToOpen' => $pathToOpen,
+            'userDir' => $userDir
         );
-
-//        echo '<pre>';
-//        var_dump($parameters);
-//        echo '</pre>';
-        //die();
-        $response->setData($parameters);
-        return $response;
-    }
-
-    public function uploadAction() {
-        $user = $this->getUser();
-        $userDir = realpath(__DIR__ . '/../../../uploads/user' . $user->getId()) . '/';
-
-        $uploaddir = $userDir;
-        $uploadfile = $uploaddir.basename($_FILES['uploadfile']['name']);
-
-        if (copy($_FILES['uploadfile']['tmp_name'], $uploadfile))
-        {
-            echo "<h3>Файл успешно загружен на сервер</h3>";
-        }
-        else { echo "<h3>Ошибка! Не удалось загрузить файл на сервер!</h3>"; exit; }
-
-        echo "<h3>Информация о загруженном на сервер файле: </h3>";
-        echo "<p><b>Оригинальное имя загруженного файла: ".$_FILES['uploadfile']['name']."</b></p>";
-        echo "<p><b>Mime-тип загруженного файла: ".$_FILES['uploadfile']['type']."</b></p>";
-        echo "<p><b>Размер загруженного файла в байтах: ".$_FILES['uploadfile']['size']."</b></p>";
-        echo "<p><b>Временное имя файла: ".$_FILES['uploadfile']['tmp_name']."</b></p>";
-
-        die();
     }
 
     protected function folderSize($dir){
