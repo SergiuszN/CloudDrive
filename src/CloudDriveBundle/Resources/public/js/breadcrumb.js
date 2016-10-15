@@ -14,7 +14,7 @@
     }
     
     function changeUrlEvent() {
-        window.history.pushState('page2', 'Title', baseUrl + breadcrumb.data('path'));
+        window.history.pushState('page2', 'Title', baseUrl + 'user/' +  breadcrumb.data('path'));
     }
 
     function changeBreadcrumbEvent() {

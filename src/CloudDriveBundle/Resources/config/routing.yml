@@ -1,5 +1,8 @@
 cloud_drive_homepage:
-    path:     /{path}
+    path:     /
+    defaults: { _controller: CloudDriveBundle:Default:index, path: '' }
+cloud_drive_user_homepage:
+    path:     /user/{path}
     defaults: { _controller: CloudDriveBundle:Default:index, path: '' }
     requirements:
         path: '^[\w:!]+'

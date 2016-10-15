@@ -13,7 +13,7 @@
     var createFolderSubmit = $('#create_folder_input_submit');
     var baseUrl = $('#url_base').html();
     var breadcrumb = $('#main_breadcrumb');
-    var createFolderUrl = baseUrl + 'api/create/folder/' + breadcrumb.data('path') + '/';
+
 
     createFolderSubmit.click(submitCreateFolderModal);
     createFolder.click(openCreateFolderModal);
@@ -24,7 +24,8 @@
 
     function submitCreateFolderModal() {
         createFolderModal.modal('hide');
-        $.ajax({url: createFolderUrl + createFolderInput.val(), success: function(){
+        var createFolderUrl = baseUrl + 'api/create/folder/' + breadcrumb.data('path') + '/' + createFolderInput.val();
+        $.ajax({url: createFolderUrl, success: function(){
             breadcrumb.trigger('breadcrumbClick');
         }});
         console.log();
