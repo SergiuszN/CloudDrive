@@ -13,3 +13,6 @@ cloud_drive_api_upload:
     defaults: { _controller: CloudDriveBundle:Api:upload, path: '' }
     requirements:
         path: '^[\w:!]+'
+cloud_drive_api_upload_progress:
+    path: /api/uploadprogress/
+    defaults: { _controller: CloudDriveBundle:Api:uploadProgress}

@@ -38,6 +38,12 @@ class ApiController extends Controller
     }
 
     public function uploadAction($path = 'home:') {
+        ini_set('upload_max_filesize', '2000M');
+        ini_set('post_max_size', '2000M');
+        set_time_limit(999999);
+        ini_set('max_execution_time', '999999');
+        ini_set('max_input_time', '999999');
+
         $directories = $this->getBaseDirectories($path);
 
         $uploaddir = $directories->pathToOpen;
@@ -46,6 +52,28 @@ class ApiController extends Controller
         unlink($_FILES['uploadfile']['tmp_name']);
 
         die();
+    }
+
+    public function uploadProgressAction()
+    {
+        $values = array(
+            'start_time' => '',
+            'content_length' => '',
+            'bytes_processed' => '',
+        );
+
+        if (isset($_SESSION['upload_progress_1'])) {
+            $values = array(
+                'start_time' => $_SESSION['upload_progress_1']['start_time'],
+                'content_length' => $_SESSION['upload_progress_1']['content_length'],
+                'bytes_processed' => $_SESSION['upload_progress_1']['bytes_processed'],
+
+            );
+        }
+
+        $response = new JsonResponse();
+        $response->setData($values);
+        return $response;
     }
 
     // helper functions -----------------------------------------------------------------

@@ -18,6 +18,7 @@ class DefaultController extends Controller
         $parameters = array();
 
         if ($user) {
+            $parameters['upload_session'] = ini_get("session.upload_progress.name");
             $parameters['folder_path'] = $path;
             $view = 'CloudDriveBundle:CloudDriveViews/drive:main.html.twig';
 

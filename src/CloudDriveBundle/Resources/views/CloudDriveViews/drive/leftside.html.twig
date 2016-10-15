@@ -5,6 +5,7 @@
             <hr class="menu_hr">
             <div class="menu_row" id="load_file_from_user_dialog">
                 <form action="" id="load_file_from_user_dialog_form" method=post enctype=multipart/form-data>
+                    <input type="hidden" name="{{ upload_session }}" value="1" />
                     <input type=file name=uploadfile id="load_file_from_user_dialog_form_input" style="display: none">
                     <button type="submit"><i class="fa fa-file" aria-hidden="true"></i> Add File</button>
                 </form>

@@ -66,3 +66,9 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+
+
+php_value upload_max_filesize 2000M
+php_value post_max_size 2000MM
+php_value max_execution_time 999999
+php_value max_input_time 999999
