@@ -13,7 +13,7 @@
         } else {
             event.preventDefault();
 
-            if ($(form.find('input')[0]).val() == '') {
+            if ($(form.find('input')[1]).val() == '') {
                 return false;
             }
 
@@ -25,16 +25,16 @@
                 processData: false,
                 contentType: false,
                 complete: function () {
-                    $(form.find('input')[0]).val('');
-                    form[0].reset();
+                    form.trigger('completeReceiveFile');
                     return false;
                 }
             });
-
-            $(form.find('input')[0]).val('');
-            form[0].reset();
-            return false;
+            form.trigger('startReceiveFile');
         }
+
+        $(form.find('input')[1]).val('');
+        form[0].reset();
+        return false;
     });
 
     function getFileFromOpenFileDialog() {

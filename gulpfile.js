@@ -52,6 +52,7 @@ gulp.task('scripts:build', function(){
         local: [
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_viewer.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_loader.js',
+            './src/CloudDriveBundle/Resources/public/js/file_loader/progressbar.js',
             './src/CloudDriveBundle/Resources/public/js/breadcrumb.js',
             './src/CloudDriveBundle/Resources/public/js/menu.js',
         ]

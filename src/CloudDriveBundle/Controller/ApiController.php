@@ -60,6 +60,7 @@ class ApiController extends Controller
             'start_time' => '',
             'content_length' => '',
             'bytes_processed' => '',
+            'file' => '',
         );
 
         if (isset($_SESSION['upload_progress_1'])) {
@@ -67,7 +68,7 @@ class ApiController extends Controller
                 'start_time' => $_SESSION['upload_progress_1']['start_time'],
                 'content_length' => $_SESSION['upload_progress_1']['content_length'],
                 'bytes_processed' => $_SESSION['upload_progress_1']['bytes_processed'],
-
+                'file' => $_SESSION['upload_progress_1']['files'][0]['name'],
             );
         }
 
