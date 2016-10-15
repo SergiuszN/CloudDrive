@@ -16,3 +16,9 @@ cloud_drive_api_upload:
 cloud_drive_api_upload_progress:
     path: /api/uploadprogress/
     defaults: { _controller: CloudDriveBundle:Api:uploadProgress}
+cloud_drive_api_create_folder:
+    path: /api/create/folder/{path}/{name}
+    defaults: { _controller: CloudDriveBundle:Api:createFolder }
+    requirements:
+        path: '^[\w:!]+'
+        name: '^[\w_]+'

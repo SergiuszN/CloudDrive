@@ -10,7 +10,7 @@
                     <button type="submit"><i class="fa fa-file" aria-hidden="true"></i> Add File</button>
                 </form>
             </div>
-            <div class="menu_row"><i class="fa fa-share-alt" aria-hidden="true"></i> Create Folder</div>
+            <div class="menu_row" id="create_folder_dialog"><i class="fa fa-folder" aria-hidden="true"></i> Create Folder</div>
         </div>
     </div>
     <hr class="menu_hr">
@@ -22,5 +22,28 @@
         <div class="menu_row"><i class="fa fa-file" aria-hidden="true"></i> Files</div>
         <div class="menu_row"><i class="fa fa-trash" aria-hidden="true"></i> Deleted</div>
         <div class="menu_row"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="create_folder" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Create new folder</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="create_folder_input" placeholder="Folder name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="create_folder_input_submit">Create</button>
+            </div>
+        </div>
     </div>
 </div>

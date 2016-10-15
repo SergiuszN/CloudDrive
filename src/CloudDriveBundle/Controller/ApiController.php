@@ -77,6 +77,13 @@ class ApiController extends Controller
         return $response;
     }
 
+    public function createFolderAction($path, $name) {
+        $directories = $this->getBaseDirectories($path);
+        $newDirectory = $directories->pathToOpen . $name;
+        mkdir($newDirectory);
+        die();
+    }
+
     // helper functions -----------------------------------------------------------------
     protected function getBaseDirectories($path) {
         /* @var User $user */
