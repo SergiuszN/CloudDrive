@@ -1,15 +1,8 @@
 (function () {
-    var filesBlock = $('.files_block');
     var breadcrumb = $('#main_breadcrumb');
     var filesApiUrl = $('#url_api_files').html() + "/";
-    var pathArray;
 
-    filesBlock.bind("DOMSubtreeModified",function(){
-        if (filesBlock.html() == '') {
-            // event watcher
-            changeBreadcrumbEvent();
-        }
-    });
+    breadcrumb.on('pathChange', changeBreadcrumbEvent);
 
     /* ------- function block ---------  */
 
@@ -22,7 +15,7 @@
     }
 
     function getHtmlArray() {
-        pathArray = breadcrumb.data('path').split(':');
+        var pathArray = breadcrumb.data('path').split(':');
         pathArray.pop();
         var breadcrumbHtmlArray = pathArray.slice();
         for (var i=0;i<pathArray.length;i++) {
@@ -40,7 +33,6 @@
         for (var i=0;i<=index;i++) {
             path += pathArray[i] + ':';
         }
-        console.log(path);
         return path;
     }
 

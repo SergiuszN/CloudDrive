@@ -41,7 +41,9 @@
         var i;
 
         breadcrumb.data('path', result.folder);
+        breadcrumb.trigger('pathChange');
         filesBlock.html('');
+
 
         if (result.dir.directory) {
             for (i=0;i<result.dir.directory.length; i++) {
