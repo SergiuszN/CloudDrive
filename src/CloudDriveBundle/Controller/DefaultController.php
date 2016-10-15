@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction($path)
     {
         /* @var User $user */
         $user = $this->getUser();
@@ -18,6 +18,7 @@ class DefaultController extends Controller
         $parameters = array();
 
         if ($user) {
+            $parameters['folder_path'] = $path;
             $view = 'CloudDriveBundle:CloudDriveViews/drive:main.html.twig';
 
         }

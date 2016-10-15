@@ -1,6 +1,7 @@
 {% extends 'CloudDriveBundle:CloudDriveViews:layout.html.twig' %}
 
 {% block content %}
+    <div id="folder_path" style="display: none;">{{ folder_path }}</div>
     {% include 'CloudDriveBundle:CloudDriveViews/drive:navbar.html.twig' %}
 
     <div class="container-fluid">

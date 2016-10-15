@@ -1,5 +1,4 @@
 (function(){
-
     // get base variable
     var baseUrl = $('#url_base').html();
     var filesApiUrl = $('#url_api_files').html() + "/";
@@ -9,6 +8,8 @@
     setHomeDirectoryInBreadcrumbIfEmpty();
 
     updateView(filesApiUrl + breadcrumb.data('path'));
+    breadcrumb.on('pathChange', setFileClickEvent);
+    breadcrumb.on('breadcrumbClick', setBreadcrumbClick);
 
     /* -----------    Function Block    ----------- */
     
@@ -16,11 +17,14 @@
         url = url.replace('..', '!');
         $.ajax({url: url, success: function(result){
             displayFolder(result);
-            setClickListener();
         }});
     }
+
+    function setBreadcrumbClick() {
+        updateView(filesApiUrl + breadcrumb.data('path'));
+    }
     
-    function setClickListener() {
+    function setFileClickEvent() {
         var rows = filesBlock.find('.files_row');
         rows.click(function () {
             rowClick(this);
@@ -41,9 +45,11 @@
         var i;
 
         breadcrumb.data('path', result.folder);
-        breadcrumb.trigger('pathChange');
         filesBlock.html('');
 
+        if ($.isEmptyObject(result)) {
+            return;
+        }
 
         if (result.dir.directory) {
             for (i=0;i<result.dir.directory.length; i++) {
@@ -60,11 +66,18 @@
                 prepareRow.appendTo(filesBlock);
             }
         }
+
+        breadcrumb.trigger('pathChange');
     }
 
     function setHomeDirectoryInBreadcrumbIfEmpty() {
         if (! breadcrumb.data('path')) {
-            breadcrumb.data('path', 'home:');
+            var folder_path = $('#folder_path').html();
+            if (folder_path != '') {
+                breadcrumb.data('path', folder_path);
+            } else {
+                breadcrumb.data('path', 'home:');
+            }
         }
     }
 
