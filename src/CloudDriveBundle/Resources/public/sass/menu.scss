@@ -1,0 +1,26 @@
+.menu {
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #333;
+  font-size: 12px;
+  .menu_add_dropdown_content {
+    .menu_row {
+      padding-left: 20px;
+    }
+  }
+  .menu_hr {
+    margin: 0;
+  }
+  .menu_row {
+    padding: 5px;
+    cursor: pointer;
+    i {
+      width: 20px;
+    }
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}

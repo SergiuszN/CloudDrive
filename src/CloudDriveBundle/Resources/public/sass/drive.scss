@@ -50,20 +50,6 @@ body
     }
   }
 }
-.left-side
-{
-  padding-left: 0;
-  padding-right: 0;
-  .menu
-  {
-    .menu-item
-    {
-      border-radius: 0;
-      font-size: 16px;
-      border: none;
-    }
-  }
-}
 .footer
 {
   text-align: right;
@@ -77,15 +63,4 @@ body
 
 #main_breadcrumb {
   margin-top: 10px;
-}
-
-.menu {
-  margin-top: 10px;
-  .menu-item {
-    background-color: #f5f5f5;
-    cursor: pointer;
-    &:hover {
-      background-color: #fff;
-    }
-  }
 }
