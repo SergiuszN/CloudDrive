@@ -50,6 +50,7 @@ gulp.task('scripts:build', function(){
             './src/CloudDriveBundle/Resources/public/vendor/js/bootstrap.min.js',
         ],
         local: [
+            './src/CloudDriveBundle/Resources/public/js/file_loader/file_viewer.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_loader.js',
             './src/CloudDriveBundle/Resources/public/js/breadcrumb.js',
             './src/CloudDriveBundle/Resources/public/js/menu.js',

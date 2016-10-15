@@ -24,3 +24,21 @@
     }
   }
 }
+#load_file_from_user_dialog {
+  padding: 0 !important;
+}
+#load_file_from_user_dialog_form {
+  form {
+    display: inline-block;
+  }
+  button {
+    border: none;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: transparent;
+  }
+}

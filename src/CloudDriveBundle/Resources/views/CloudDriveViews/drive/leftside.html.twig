@@ -3,7 +3,12 @@
         <div class="menu_row menu_add_dropdown_open"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</div>
         <div class="menu_add_dropdown_content" style="display: none">
             <hr class="menu_hr">
-            <div class="menu_row"><i class="fa fa-file" aria-hidden="true"></i> Add File</div>
+            <div class="menu_row" id="load_file_from_user_dialog">
+                <form action="" id="load_file_from_user_dialog_form" method=post enctype=multipart/form-data>
+                    <input type=file name=uploadfile id="load_file_from_user_dialog_form_input" style="display: none">
+                    <button type="submit"><i class="fa fa-file" aria-hidden="true"></i> Add File</button>
+                </form>
+            </div>
             <div class="menu_row"><i class="fa fa-share-alt" aria-hidden="true"></i> Create Folder</div>
         </div>
     </div>

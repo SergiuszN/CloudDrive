@@ -8,3 +8,6 @@ cloud_drive_api_main_page:
     defaults: { _controller: CloudDriveBundle:Api:mainPage, path: '' }
     requirements:
         path: '^[\w:!]+'
+cloud_drive_api_upload:
+    path: /api/upload
+    defaults: { _controller: CloudDriveBundle:Api:upload}
