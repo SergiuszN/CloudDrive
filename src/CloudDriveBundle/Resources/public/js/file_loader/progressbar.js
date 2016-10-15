@@ -3,6 +3,7 @@
     var progressBarWrapper = $('.progress_bar_wrapper');
     var label = progressBarWrapper.find('label');
     var progress = progressBarWrapper.find('progress');
+    var breadcrumb = $('#main_breadcrumb');
 
     var baseUrl = $('#url_base').html();
     var uploadStateUrl = baseUrl + 'api/uploadprogress/';
@@ -17,6 +18,7 @@
         progress.attr('value', 100);
         setTimeout(function () {
             progressBarWrapper.fadeOut(300);
+            breadcrumb.trigger('breadcrumbClick');
         }, 3000);
     }
 
