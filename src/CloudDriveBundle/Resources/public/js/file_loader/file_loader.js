@@ -86,13 +86,16 @@
     }
 
     function getPrepareBlock(row, block, type) {
+        var dateModify = new Date(row[2]);
+        var dateNow = new Date();
+
         block.find('.files_fav').html('*');
         block.find('.files_check').html(getIcon(type, row[0]));
         block.find('.files_name').html(row[0]);
         block.find('.files_share').html('*');
         block.find('.files_menu').html('*');
-        block.find('.files_size').html(row[1]);
-        block.find('.files_mod').html(row[2]);
+        block.find('.files_size').html(bytesToSize(row[1]));
+        block.find('.files_mod').html(getTimeAgoString(dateModify, dateNow));
         block.find('.files_url').html(filesApiUrl + breadcrumb.data('path') + ':' + row[0]);
         block.find('.files_type').html(type);
         return block;
@@ -136,5 +139,51 @@
             case 'pptx': return '<i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>'; break;
             default: return '<i class="fa fa-file-o" aria-hidden="true"></i>'; break;
         }
+    }
+
+    function getTimeAgoString(earlierDate,laterDate) {
+        var timeDifferent = get_time_difference(earlierDate,laterDate);
+        if (timeDifferent.month > 0) {
+            return timeDifferent.month + ' months ago';
+        }
+        if (timeDifferent.days > 0) {
+            return timeDifferent.days + ' days ago';
+        }
+        if (timeDifferent.hours > 0) {
+            return timeDifferent.hours + ' hours ago';
+        }
+        if (timeDifferent.minutes > 0) {
+            return timeDifferent.minutes + ' minutes ago';
+        }
+        return 'less then one minute';
+    }
+
+    function get_time_difference(earlierDate,laterDate)
+    {
+        var nTotalDiff = laterDate.getTime() - earlierDate.getTime();
+        var oDiff = {};
+
+        oDiff.month = Math.floor(nTotalDiff/1000/60/60/24/30);
+        nTotalDiff -= oDiff.month*1000*60*60*24*30;
+
+        oDiff.days = Math.floor(nTotalDiff/1000/60/60/24);
+        nTotalDiff -= oDiff.days*1000*60*60*24;
+
+        oDiff.hours = Math.floor(nTotalDiff/1000/60/60);
+        nTotalDiff -= oDiff.hours*1000*60*60;
+
+        oDiff.minutes = Math.floor(nTotalDiff/1000/60);
+        nTotalDiff -= oDiff.minutes*1000*60;
+
+        oDiff.seconds = Math.floor(nTotalDiff/1000);
+
+        return oDiff;
+    }
+
+    function bytesToSize(bytes) {
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes == 0) return '0 Byte';
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
     }
 })();
