@@ -21,15 +21,46 @@
 
 <div id="files_row_base" style="display: none;">
     <div class="files_row">
-        <div class="files_fav"></div>
+        <div class="files_fav"><i class="fa fa-star-o" aria-hidden="true"></i></div>
         <div class="files_check"></div>
         <div class="files_name"></div>
-        <div class="files_share"></div>
-        <div class="files_menu"></div>
+        <div class="files_share"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        <div class="files_menu">
+            <i class="fa fa-ellipsis-h files_menu_open_button" aria-hidden="true"></i>
+            <div class="files_menu_toggle" style="display: none;">
+                <div class="menu_row files_menu_download"><i class="fa fa-download" aria-hidden="true"></i> Download</div>
+                <div class="menu_row files_menu_rename" id=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Rename</div>
+                <hr class="menu_hr">
+                <div class="menu_row files_menu_delete" id=""><i class="fa fa-trash" aria-hidden="true"></i> Delete</div>
+            </div>
+        </div>
         <div class="files_size"></div>
         <div class="files_mod"></div>
         <div class="files_url" style="display: none"></div>
         <div class="files_type" style="display: none"></div>
         <div class="clearfix"></div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="rename_action" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Rename action</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="rename_action_input" placeholder="New Name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="rename_action_submit">Rename</button>
+            </div>
+        </div>
     </div>
 </div>

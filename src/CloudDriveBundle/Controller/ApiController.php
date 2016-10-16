@@ -4,6 +4,9 @@ namespace CloudDriveBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use CloudDriveBundle\Repository\UserRepository;
 use CloudDriveBundle\Entity\User;
+use CloudDriveBundle\Helpers\FlxZipArchive;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiController extends Controller
@@ -84,7 +87,72 @@ class ApiController extends Controller
         die();
     }
 
+    public function downloadAction($path, $type) {
+        $directories = $this->getBaseDirectories($path);
+
+        if ($type == 'dir') {
+            $zip = new FlxZipArchive();
+            $tempArchive = $zip->createTempFolderArchive($directories->pathToOpen);
+            $this->binaryFileReturn($tempArchive);
+        }
+
+        $file = substr($directories->pathToOpen, 0, -1);
+        $this->binaryFileReturn($file);
+    }
+
+    public function renameAction($path, $newName) {
+        $pathOld = substr($this->getBaseDirectories($path)->pathToOpen, 0, -1);
+        $pathExplode = explode('/', $pathOld);
+        $pathExplode[count($pathExplode)-1] = $newName;
+        $pathNew = implode('/', $pathExplode);
+
+        rename ($pathOld, $pathNew);
+        die();
+    }
+
+    public function deleteAction($path) {
+        $directories = $this->getBaseDirectories($path);
+        $file = substr($directories->pathToOpen, 0, -1);
+
+        if (is_dir($file)) {
+            $this->rRmDir($file);
+        } else {
+            unlink($file);
+        }
+
+        die();
+    }
+
     // helper functions -----------------------------------------------------------------
+    protected function rRmDir($src) {
+        $dir = opendir($src);
+        while(false !== ( $file = readdir($dir)) ) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                $full = $src . '/' . $file;
+                if ( is_dir($full) ) {
+                    $this->rRmDir($full);
+                }
+                else {
+                    unlink($full);
+                }
+            }
+        }
+        closedir($dir);
+        rmdir($src);
+    }
+
+    protected function binaryFileReturn($file) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        readfile($file);
+        exit;
+    }
+
     protected function getBaseDirectories($path) {
         /* @var User $user */
         $user = $this->getUser();

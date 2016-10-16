@@ -10,18 +10,18 @@
       padding-left: 20px;
     }
   }
-  .menu_hr {
-    margin: 0;
+}
+.menu_hr {
+  margin: 0;
+}
+.menu_row {
+  padding: 5px;
+  cursor: pointer;
+  i {
+    width: 20px;
   }
-  .menu_row {
-    padding: 5px;
-    cursor: pointer;
-    i {
-      width: 20px;
-    }
-    &:hover {
-      background-color: #fff;
-    }
+  &:hover {
+    background-color: #fff;
   }
 }
 #load_file_from_user_dialog {

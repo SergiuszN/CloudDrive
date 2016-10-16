@@ -25,9 +25,8 @@
     }
     
     function setFileClickEvent() {
-        var rows = filesBlock.find('.files_row');
-        rows.click(function () {
-            rowClick(this);
+        filesBlock.find('.files_name').click(function () {
+            rowClick($(this).parent());
         });
     }
 
@@ -89,15 +88,15 @@
         var dateModify = new Date(row[2]);
         var dateNow = new Date();
 
-        block.find('.files_fav').html('*');
         block.find('.files_check').html(getIcon(type, row[0]));
         block.find('.files_name').html(row[0]);
-        block.find('.files_share').html('*');
-        block.find('.files_menu').html('*');
         block.find('.files_size').html(bytesToSize(row[1]));
         block.find('.files_mod').html(getTimeAgoString(dateModify, dateNow));
         block.find('.files_url').html(filesApiUrl + breadcrumb.data('path') + ':' + row[0]);
         block.find('.files_type').html(type);
+        block.attr('data-path', breadcrumb.data('path') + ':' + row[0]);
+        block.attr('data-name', row[0]);
+        block.attr('data-type', type == 'file' ? row[0].split('.')[1] : type);
         return block;
     }
 
@@ -155,7 +154,7 @@
         if (timeDifferent.minutes > 0) {
             return timeDifferent.minutes + ' minutes ago';
         }
-        return 'less then one minute';
+        return 'just now';
     }
 
     function get_time_difference(earlierDate,laterDate)

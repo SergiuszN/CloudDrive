@@ -25,3 +25,20 @@ cloud_drive_api_create_folder:
     requirements:
         path: '^[\w:!]+'
         name: '^[\w_]+'
+cloud_drive_api_download:
+    path: /api/download/{path}/{type}
+    defaults: { _controller: CloudDriveBundle:Api:download }
+    requirements:
+        path: '^[\w:!.-]+'
+        type: '^[\w]+'
+cloud_drive_api_rename:
+    path: /api/rename/{path}/{newName}
+    defaults: { _controller: CloudDriveBundle:Api:rename }
+    requirements:
+        path: '^[\w:!.-]+'
+        newName: '^[\w:!.-]+'
+cloud_drive_api_delete:
+    path: /api/delete/{path}
+    defaults: { _controller: CloudDriveBundle:Api:delete }
+    requirements:
+        path: '^[\w:!.-]+'
