@@ -3,43 +3,47 @@
         <label for="file_upload_progress_bar">File name: 'whahaha.jps' progress: 80%</label>
         <progress id="file_upload_progress_bar"  max="100" value="80"></progress>
     </div>
-    <div class="files_header_row">
-        <div class="files_header_fav">Favorite</div>
-        <div class="files_header_check"><input type="checkbox"></div>
-        <div class="files_header_name">Name<i class="fa fa-sort-asc" aria-hidden="true"></i></div>
-        <div class="files_header_share">Share</div>
-        <div class="files_header_menu">Menu</div>
-        <div class="files_header_size">Size</div>
-        <div class="files_header_mod">Modified</div>
-        <div class="clearfix"></div>
+    <div class="files_header_row well well-sm row">
+        <div class="files_header_fav col-xs-2 col-sm-1 col-md-1"></div>
+        <div class="file_header_icon col-xs-2 col-sm-1 col-md-1"></div>
+        <div class="files_header_name col-xs-10 col-sm-4 col-md-4">Name <i class="fa fa-sort-asc" aria-hidden="true"></i></div>
+        <div class="files_header_share col-xs-2 col-sm-1 col-md-1">Share</div>
+        <div class="files_header_menu col-xs-2 col-sm-1 col-md-1">Menu</div>
+        <div class="files_header_size col-sm-2 col-md-2">Size</div>
+        <div class="files_header_mod col-sm-2 col-md-2">Modified</div>
     </div>
-    <div class="clearfix"></div>
     <div class="files_block">
 
     </div>
-    <div class="clearfix"></div>
+
 </div>
 
 <div id="files_row_base" style="display: none;">
-    <div class="files_row">
-        <div class="files_fav"><i class="fa fa-star-o" aria-hidden="true"></i></div>
-        <div class="files_check"></div>
-        <div class="files_name"></div>
-        <div class="files_share"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
-        <div class="files_menu">
+    <div class="files_row well well-sm row">
+        <div class="files_fav col-sm-1 col-md-1"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+        <div class="files_check col-xs-1 col-sm-1 col-md-1"></div>
+        <div class="files_name col-xs-9 col-sm-4 col-md-4"></div>
+        <div class="files_share col-sm-1 col-md-1"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+        <div class="files_menu col-sm-1 col-md-1">
             <i class="fa fa-ellipsis-h files_menu_open_button" aria-hidden="true"></i>
-            <div class="files_menu_toggle" style="display: none;">
+            <div class="files_menu_toggle " style="display: none;">
                 <div class="menu_row files_menu_download"><i class="fa fa-download" aria-hidden="true"></i> Download</div>
                 <div class="menu_row files_menu_rename" id=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Rename</div>
-                <hr class="menu_hr">
+
                 <div class="menu_row files_menu_delete" id=""><i class="fa fa-trash" aria-hidden="true"></i> Delete</div>
             </div>
         </div>
-        <div class="files_size"></div>
-        <div class="files_mod"></div>
+        <div class="files_size col-sm-2 col-md-2"></div>
+        <div class="files_mod col-sm-2 col-md-2"></div>
+        <div class="visible-xs files_drop_down col-xs-1"><i class="fa fa-angle-down" aria-hidden="true"></i>
+        <div class="files_mobile_menu row">
+            <div class="col-xs-4"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+            <div class="col-xs-4"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+            <div class="col-xs-4"><i class="fa fa-ellipsis-h files_menu_open_button" aria-hidden="true"></i></div>
+        </div>
+        </div>
         <div class="files_url" style="display: none"></div>
         <div class="files_type" style="display: none"></div>
-        <div class="clearfix"></div>
     </div>
 </div>
 
