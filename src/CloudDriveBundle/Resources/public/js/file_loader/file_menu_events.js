@@ -43,7 +43,7 @@
             $('.files_mobile_menu').slideUp();
         } else {
             $('.files_mobile_menu').slideUp;
-            menu.slideDown();
+            menu.show();
           //  $('.files_mobile_menu').css('display','flex');
         }
     }

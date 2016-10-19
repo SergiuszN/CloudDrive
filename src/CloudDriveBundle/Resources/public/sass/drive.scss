@@ -3,6 +3,11 @@ $font-logo: 'Poiret One', helvetica;
 $primary-color: #ecf0f1;
 $second-color: #CD7A36;
 $dark-color: #222;
+
+@media only screen and(max-width:768px)
+{
+  
+}
 body
 {
 
@@ -48,6 +53,21 @@ body
         }
       }
     }
+  }
+}
+.burger-menu
+{
+  border: none;
+}
+.navbar-toggle
+{
+  &:focus
+  {
+    color:$second-color;
+    background-color: $dark-color;
+  }
+  &:hover {
+    background-color: $dark-color;
   }
 }
 .footer
