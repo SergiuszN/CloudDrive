@@ -90,22 +90,26 @@
         var dateModify = new Date(row[2]);
         var dateNow = new Date();
 
-        block.find('.files_check').html(getIcon(type, row[0]));
         block.find('.files_name').html(row[0]);
         block.find('.files_size').html(bytesToSize(row[1]));
         block.find('.files_mod').html(getTimeAgoString(dateModify, dateNow));
         block.find('.files_url').html(filesApiUrl + breadcrumb.data('path') + ':' + row[0]);
-        block.find('.files_type').html(type);
         block.attr('data-path', breadcrumb.data('path') + ':' + row[0]);
         block.attr('data-name', row[0]);
-        block.attr('data-type', type == 'file' ? row[0].split('.')[1] : type);
+
+        if (type == 'file') {
+            var split = row[0].split('.');
+            type = split[split.length-1];
+        }
+
+        block.find('.files_check').html(getIcon(type));
+        block.find('.files_type').html(type);
+        block.attr('data-type', type);
+
         return block;
     }
 
-    function getIcon(type, name) {
-        if (type == 'file') {
-            type = name.split('.')[1];
-        }
+    function getIcon(type) {
         switch (type) {
             case 'dir': return '<i class="fa fa-folder fa-2x" aria-hidden="true"></i>'; break;
             case 'xlsx': return '<i class="fa fa-file-excel-o" aria-hidden="true"></i>'; break;
@@ -131,9 +135,12 @@
             case 'php': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'css': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'scss': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
+            case 'make': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
+            case 'json': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
+            case 'rb': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
+            case 'sql': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'html': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'js': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
-            case 'min': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'cpp': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'c': return '<i class="fa fa-file-code-o" aria-hidden="true"></i>'; break;
             case 'ppt': return '<i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>'; break;

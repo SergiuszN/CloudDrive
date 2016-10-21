@@ -42,3 +42,8 @@ cloud_drive_api_delete:
     defaults: { _controller: CloudDriveBundle:Api:delete }
     requirements:
         path: '^[\w:!.-]+'
+cloud_drive_api_open_image:
+    path: /api/open/image/{path}
+    defaults: { _controller: CloudDriveBundle:Api:openImage }
+    requirements:
+        path: '^[\w:!.-]+'

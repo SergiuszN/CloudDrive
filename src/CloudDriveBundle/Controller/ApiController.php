@@ -123,6 +123,13 @@ class ApiController extends Controller
         die();
     }
 
+    public function openImageAction($path) {
+        $directories = $this->getBaseDirectories($path);
+        $file = substr($directories->pathToOpen, 0, -1);
+        $response = new BinaryFileResponse($file);
+        return $response;
+    }
+
     // helper functions -----------------------------------------------------------------
     protected function rRmDir($src) {
         $dir = opendir($src);
