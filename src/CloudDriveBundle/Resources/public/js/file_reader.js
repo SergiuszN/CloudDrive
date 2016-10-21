@@ -16,7 +16,9 @@
     function fileNameClick() {
         var parent = $(this).parents('.files_row');
         var file = new FileReader(parent.data('path'), parent.data('name'), parent.data('type'));
-        file.open();
+        if (parent.data('type') != 'dir') {
+            file.open();
+        }
     }
 
     function FileReader(path, name, type) {
@@ -32,7 +34,7 @@
                 return;
             }
 
-            if (this.type == 'php' || this.type == 'txt' || this.type == 'css' || this.type == 'js') {
+            if (this.type == 'php' || this.type == 'txt' || this.type == 'css' || this.type == 'js' ) {
                 this.openFile();
                 return;
             }
