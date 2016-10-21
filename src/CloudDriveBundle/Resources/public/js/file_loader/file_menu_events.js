@@ -15,7 +15,7 @@
     });
 
     function filesMenuClickEventListener(_this) {
-        var parent = $(_this).parents('.files_row');
+        var parent = $(_this).parent();
         if (parent.data('name') == '..') {
             $('.files_menu_toggle').fadeOut(300);
             return;
@@ -38,13 +38,12 @@
         }
 
         var menu = $(_this).parent().find('.files_mobile_menu');
-        console.log(menu);
         if (menu.is(':visible')) {
             $('.files_mobile_menu').slideUp();
         } else {
             $('.files_mobile_menu').slideUp;
-            menu.show();
-          //  $('.files_mobile_menu').css('display','flex');
+            menu.slideDown();
+
         }
     }
 

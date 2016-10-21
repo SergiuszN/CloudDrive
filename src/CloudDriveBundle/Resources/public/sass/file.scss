@@ -1,9 +1,8 @@
+$main-font-color:#333;
+$second-font-color:#737373;
 @media only screen and(max-width:768px)
 {
-  .files_header_mod,.files_header_size,.files_header_fav,.files_header_menu,.files_header_share,.files_fav,.files_share,.files_menu,.files_size,.files_mod
-  {
-    display: none;
-  }
+
 }
 #files_wrapper {
   width: 100%;
@@ -16,9 +15,9 @@
 .files_header_row {
   border:none;
   border-radius: 0;
-  font-size: 18px;
+  font-size: 16px;
   text-align: left;
-  color: #737373;
+  color: $second-font-color;
   cursor: pointer;
   margin-bottom: 0px;
   border-radius: 0;
@@ -31,14 +30,45 @@
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 0px;
+  .fa
+  {
+    font-size:25px;
+    padding: 5px;
+  }
   .files_check
   {
     text-align: right;
   }
-  .files_name
+  .files_mod
   {
-    text-align: left;
+    color:$second-font-color;
+    font-size: 12px;
   }
+  .files_size
+  {
+    color:$second-font-color;
+    font-size: 12px;
+    text-align: right;
+  }
+}
+
+  .files-info
+  {
+    .files_row_name
+    {
+      margin-bottom: 10px;
+    }
+  }
+
+.files_mobile_row
+{
+  text-align: center;
+  padding-top: 15px;
+  .fa-star-o,.fa-share-alt,.fa-ellipsis-h
+  {
+    padding: 15px 10px 10px 10px;
+  }
+
 }
 
 

@@ -26,7 +26,9 @@
     
     function setFileClickEvent() {
         filesBlock.find('.files_name').click(function () {
+            console.log('')
             rowClick($(this).parent());
+
         });
     }
 
@@ -105,7 +107,7 @@
             type = name.split('.')[1];
         }
         switch (type) {
-            case 'dir': return '<i class="fa fa-folder" aria-hidden="true"></i>'; break;
+            case 'dir': return '<i class="fa fa-folder fa-2x" aria-hidden="true"></i>'; break;
             case 'xlsx': return '<i class="fa fa-file-excel-o" aria-hidden="true"></i>'; break;
             case 'xsl': return '<i class="fa fa-file-excel-o" aria-hidden="true"></i>'; break;
             case 'doc': return '<i class="fa fa-file-word-o" aria-hidden="true"></i>'; break;
