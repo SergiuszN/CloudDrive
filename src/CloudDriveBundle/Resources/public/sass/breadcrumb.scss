@@ -1,7 +1,18 @@
 #main_breadcrumb {
+  font-size: 16px;
   margin: 10px -15px;
   border-radius: 0;
   a, li {
     cursor: pointer;
+    color:$second-font-color;
+    &:hover
+    {
+      color:$second-color;
+      text-decoration: none;
+    }
+  }
+  .active
+  {
+    color:$second-color;
   }
 }

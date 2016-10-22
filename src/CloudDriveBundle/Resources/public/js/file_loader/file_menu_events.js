@@ -6,7 +6,7 @@
     var renameSubmit = $('#rename_action_submit');
 
     breadcrumb.on('pathChange', function () {
-        $('.files_menu_open_button').click(function(){filesMenuClickEventListener(this)});
+        $('.files_menu').click(function(){filesMenuClickEventListener(this)});
         $('.files_drop_down').click(function()
         {filesMenuMobileClickEventListener(this)});
         $('.files_menu_download').click(function(){downloadEvent(this)});

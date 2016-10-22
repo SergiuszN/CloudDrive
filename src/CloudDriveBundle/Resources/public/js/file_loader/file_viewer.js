@@ -25,8 +25,8 @@
     }
     
     function setFileClickEvent() {
-        filesBlock.find('.files_name').click(function () {
-            console.log('')
+        filesBlock.find('.files_row_name').click(function () {
+
             rowClick($(this).parent());
 
         });
