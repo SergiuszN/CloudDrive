@@ -51,3 +51,24 @@
 .modal {
   color: #333;
 }
+
+.menu_user_link {
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  i {
+    width: 100%;
+    &:before {
+      width: 20px;
+      display: inline-block;
+    }
+  }
+}
+
+.menu_static_link {
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+}

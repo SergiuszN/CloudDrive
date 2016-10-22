@@ -1,6 +1,6 @@
 <div class="menu">
     <div class="menu_add_dropdown">
-        <div class="menu_row menu_add_dropdown_open"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</div>
+        <div class="menu_row menu_add_dropdown_open"><i class="fa fa-plus-square" aria-hidden="true"></i>Create</div>
         <div class="menu_add_dropdown_content" style="display: none">
             <hr class="menu_hr">
             <div class="menu_row" id="load_file_from_user_dialog">
@@ -10,18 +10,17 @@
                     <button type="submit"><i class="fa fa-file" aria-hidden="true"></i> Add File</button>
                 </form>
             </div>
-            <div class="menu_row" id="create_folder_dialog"><i class="fa fa-folder" aria-hidden="true"></i> Create Folder</div>
+            <div class="menu_row" id="create_folder_dialog"><i class="fa fa-folder" aria-hidden="true"></i>Create Folder</div>
         </div>
     </div>
     <hr class="menu_hr">
     <div class="menu_user_link">
-        <div class="menu_row"><i class="fa fa-share-alt" aria-hidden="true"></i> User Awesome link</div>
     </div>
     <hr class="menu_hr">
     <div class="menu_static_link">
-        <div class="menu_row"><i class="fa fa-file" aria-hidden="true"></i> Files</div>
-        <div class="menu_row"><i class="fa fa-trash" aria-hidden="true"></i> Deleted</div>
-        <div class="menu_row"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</div>
+        <a href="{{ path('cloud_drive_user_homepage') }}"><div class="menu_row"><i class="fa fa-file" aria-hidden="true"></i>Files</div></a>
+        <div class="menu_row"><i class="fa fa-trash" aria-hidden="true"></i>Deleted</div>
+        <div class="menu_row"><i class="fa fa-cogs" aria-hidden="true"></i>Settings</div>
     </div>
 </div>
 

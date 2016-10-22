@@ -48,14 +48,18 @@ gulp.task('scripts:build', function(){
         vendor: [
             './src/CloudDriveBundle/Resources/public/vendor/js/jquery-3.1.1.min.js',
             './src/CloudDriveBundle/Resources/public/vendor/js/bootstrap.min.js',
+            './src/CloudDriveBundle/Resources/public/vendor/js/highlight.pack.js',
         ],
         local: [
+            './src/CloudDriveBundle/Resources/public/js/favorites_cookie.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_viewer.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_loader.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/progressbar.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/file_menu_events.js',
             './src/CloudDriveBundle/Resources/public/js/breadcrumb.js',
             './src/CloudDriveBundle/Resources/public/js/menu.js',
+            './src/CloudDriveBundle/Resources/public/js/file_reader.js',
+            './src/CloudDriveBundle/Resources/public/js/file_loader/favorites.js',
         ]
     };
 
