@@ -39,11 +39,12 @@
 
         var menu = $(_this).parent().find('.files_mobile_menu');
         if (menu.is(':visible')) {
-            $('.files_mobile_menu').slideUp();
+            menu.css('display','inline');
+            $('.files_mobile_menu').fadeOut('300');
         } else {
-            $('.files_mobile_menu').slideUp;
-            menu.slideDown();
-
+            $('.files_mobile_menu').fadeOut('300');
+            menu.slideToggle();
+            menu.css('display','inline');
         }
     }
 

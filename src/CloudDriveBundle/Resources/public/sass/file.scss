@@ -1,8 +1,11 @@
 $main-font-color:#333;
 $second-font-color:#737373;
-@media only screen and(max-width:768px)
+@media only screen and(min-width:768px)
 {
-
+  .files_mobile_menu
+  {
+    visibility: hidden;
+  }
 }
 #files_wrapper {
   width: 100%;
@@ -52,6 +55,10 @@ $second-font-color:#737373;
     font-size: 12px;
     text-align: right;
   }
+  .files_action
+  {
+    text-align: center;
+  }
 }
 
   .files-info
@@ -66,11 +73,14 @@ $second-font-color:#737373;
 {
   text-align: center;
   padding-top: 15px;
-  .fa-star-o,.fa-share-alt,.fa-ellipsis-h
-  {
-    padding: 15px 10px 10px 10px;
-  }
+  margin-left: auto;
+  margin-right: auto;
 
+  .files_fav,.files_share,.files_menu
+  {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 }
 
 
@@ -117,10 +127,16 @@ $second-font-color:#737373;
   font-size: 11px;
   text-align: left;
   z-index: 2;
-  top: 20px;
-  left: 12px;
+  top: 30px;
+  left:auto;
+  right:0px;
   border-radius: 4px;
   border: 1px solid rgba(0,0,0,0.1);
+  .fa
+  {
+    padding:0;
+    margin-right: 10px;
+  }
   .menu_row {
     &:hover {
       border-radius: 4px;
