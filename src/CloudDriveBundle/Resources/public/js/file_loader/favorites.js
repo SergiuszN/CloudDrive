@@ -51,7 +51,7 @@
     }
 
     var menuLinks = $('.menu_user_link');
-    var baseLink = $('<a href=""><div class="menu_row"><i class="fa fa-share-alt" aria-hidden="true"></i></div></a>');
+    var baseLink = $('<a href=""><div class="menu_row"><i class="fa fa-star-o" aria-hidden="true"></i></div></a>');
     function updateMenu() {
         menuLinks.find('a').remove();
         var favorites = favoritesCookie.get();

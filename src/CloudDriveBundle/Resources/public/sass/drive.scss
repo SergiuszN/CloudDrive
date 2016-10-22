@@ -1,16 +1,11 @@
 $font-stack: Helvetica, sans-serif;
 $font-logo: 'Poiret One', helvetica;
-$primary-color: #ecf0f1;
+$primary-color: #f5f5f5;
 $second-color: #CD7A36;
 $dark-color: #222;
 
-@media only screen and(max-width:768px)
-{
-
-}
 body
 {
-
   font-family: $font-stack;
 }
 .navbar
