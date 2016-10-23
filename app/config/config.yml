@@ -73,3 +73,6 @@ fos_user:
     registration:
         form:
             type: CloudDriveBundle\Form\Type\RegistrationFormType
+    change_password:
+        form:
+            type: CloudDriveBundle\Form\Type\ChangePasswordFormType

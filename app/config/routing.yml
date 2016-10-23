@@ -3,3 +3,8 @@ cloud_drive:
     prefix:   /
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_user_profile_show:
+     path: /user/{path}
+     defaults: { _controller: CloudDriveBundle:Default:index, path: '' }
+     requirements:
+            path: '^[\w:!]+'

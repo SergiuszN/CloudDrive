@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'app_user_registration';
+        return 'fos_user_change_password';
     }
 
     // For Symfony 2.x
