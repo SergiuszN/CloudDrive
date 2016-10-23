@@ -16,13 +16,13 @@
         $.ajax({
             url: baseUrl + 'api/share/get/' + parent.data('path'),
             success: function (url) {
-                var link = modal.find('#share_file_link');
+                var name = modal.find('.modal-title');
+                name.html('Share '+parent.data('name'));
+                var link = modal.find('#link');
                 link.html(parent.data('name'));
-                link.attr('href', baseUrl + 'api/download/' + url + '/' + parent.data('type'));
+                link.val(baseUrl + 'api/download/' + url + '/' + parent.data('type'));
                 modal.modal();
             }
         });
     }
-
-
 })();
