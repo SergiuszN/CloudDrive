@@ -1,6 +1,7 @@
 <?php
 namespace CloudDriveBundle\Controller;
 
+use CloudDriveBundle\Repository\ShareLinkRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use CloudDriveBundle\Repository\UserRepository;
 use CloudDriveBundle\Entity\User;
@@ -8,6 +9,7 @@ use CloudDriveBundle\Helpers\FlxZipArchive;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use CloudDriveBundle\Entity\ShareLink;
 
 class ApiController extends Controller
 {
@@ -88,7 +90,14 @@ class ApiController extends Controller
     }
 
     public function downloadAction($path, $type) {
-        $directories = $this->getBaseDirectories($path);
+        $em = $this->getDoctrine()->getManager();
+        /* @var ShareLink $shareLink */
+        $shareLink = $em->getRepository('CloudDriveBundle:ShareLink')->getOpenLink($path);
+        if ($shareLink != null) {
+            $path = $shareLink->getPath();
+        }
+
+        $directories = $this->getBaseDirectories($path, $shareLink->getUser());
 
         if ($type == 'dir') {
             $zip = new FlxZipArchive();
@@ -130,6 +139,31 @@ class ApiController extends Controller
         return $response;
     }
 
+    public function getShareLinkAction($path) {
+        /* @var User $user */
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+        /* @var ShareLinkRepository $shareLinkRepository */
+        $shareLinkRepository = $em->getRepository('CloudDriveBundle:ShareLink');
+        $shareLink = $shareLinkRepository->getLink($path, $user);
+
+        if ($shareLink == null) {
+            $date = new \DateTime();
+            $link = md5($user->getUsername() . $path . $user->getEmail() . $date->format('Y-m-d H-i-s'));
+
+            $shareLink = new ShareLink();
+            $shareLink->setPath($path);
+            $shareLink->setLink($link);
+            $shareLink->setUser($user);
+            $shareLink->setDate(new \DateTime());
+            $em->persist($shareLink);
+            $em->flush();
+        }
+
+        die($shareLink->getLink());
+    }
+
     // helper functions -----------------------------------------------------------------
     protected function rRmDir($src) {
         $dir = opendir($src);
@@ -160,9 +194,13 @@ class ApiController extends Controller
         exit;
     }
 
-    protected function getBaseDirectories($path) {
+    protected function getBaseDirectories($path, $_user = null) {
         /* @var User $user */
         $user = $this->getUser();
+
+        if ($_user != null) {
+            $user = $_user;
+        }
 
         // replace path variable
         $path = str_replace('home:', '', $path);

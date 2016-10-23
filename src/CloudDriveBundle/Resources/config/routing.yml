@@ -47,3 +47,8 @@ cloud_drive_api_open_image:
     defaults: { _controller: CloudDriveBundle:Api:openImage }
     requirements:
         path: '^[\w:!.-]+'
+cloud_drive_api_share_get:
+    path: /api/share/get/{path}
+    defaults: { _controller: CloudDriveBundle:Api:getShareLink }
+    requirements:
+        path: '^[\w:!.-]+'
