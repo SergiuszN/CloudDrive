@@ -2,6 +2,7 @@ $font-stack: Helvetica, sans-serif;
 $font-logo: 'Poiret One', helvetica;
 $primary-color: #f5f5f5;
 $second-color: #CD7A36;
+$second-font-color:#737373;
 $dark-color: #222;
 
 body
@@ -32,6 +33,20 @@ body
         }
 
       }
+      .user-profile
+      {
+        text-align: center;
+        .user-image
+        {
+          height: 64px;
+          width: 64px;
+          margin: 10px auto;
+        }
+        p{
+          color:$second-font-color;
+        }
+      }
+
       .navbar-btn
       {
         .btn-signout

@@ -12,9 +12,12 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, {{ app.user.username }}
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Account</a></li>
+                    <li class="user-profile">
+                        <img class="user-image" src="{{ asset('bundles/clouddrive/img/user-128.png') }}">
+                        <p>{{ app.user.username }}</p>
+                        <p>{{ app.user.email }}</p>
+                    </li>
                     <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
-                    <li><a href="#">Settings</a></li>
                 </ul>
             </li>
             <li><p class="navbar-btn">
