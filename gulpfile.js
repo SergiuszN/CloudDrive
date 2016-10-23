@@ -60,6 +60,7 @@ gulp.task('scripts:build', function(){
             './src/CloudDriveBundle/Resources/public/js/menu.js',
             './src/CloudDriveBundle/Resources/public/js/file_reader.js',
             './src/CloudDriveBundle/Resources/public/js/file_loader/favorites.js',
+            './src/CloudDriveBundle/Resources/public/js/share_file.js',
         ]
     };
 
