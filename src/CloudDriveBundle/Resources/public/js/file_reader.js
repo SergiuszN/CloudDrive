@@ -41,6 +41,7 @@
 
             $('#file_open_content').find('div').hide();
             var view = $('#other_view');
+            $('.modal-title').html("Ooops... ");
             view.show();
 
             this.modal.attr('data-path', this.path);
@@ -54,6 +55,7 @@
             $('#file_open_content').find('div').hide();
             // set new image
             var view = $('#doc_view');
+            $('.modal-title').html(this.name);
             view.show();
 
             var type = this.type;
@@ -80,6 +82,7 @@
             // set new image
             var view = $('#image_view');
             view.find('img').attr('src', url);
+            $('.modal-title').html(this.name);
             view.show();
             // open content
 

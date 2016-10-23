@@ -1,12 +1,15 @@
 #open_file {
-  .modal-content {
-    background-color: #333333;
-  }
-  .modal-header {
-    border-bottom: 1px solid #000;
-  }
-  .modal-footer {
-    border-top: 1px solid #000;
+  .modal-content
+  {
+    .modal-footer
+    {
+      .btn-download
+      {
+        background-color: $second-color;
+        border: 1px solid $second-color;
+        color: $primary-color;
+      }
+    }
   }
   #image_view {
     text-align: center;
@@ -19,7 +22,6 @@
     max-height: 500px;
   }
   #other_view {
-    color: #fff;
     font-size: 14px;
   }
 }
