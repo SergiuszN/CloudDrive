@@ -24,11 +24,13 @@ body
   {
     li
     {
+      font-size: 14px;
       a{
         &:hover
         {
           color: $second-color;
         }
+
       }
       .navbar-btn
       {
@@ -38,8 +40,8 @@ body
           border: 2px solid $second-color;
           background-color: $dark-color;
           color: $second-color;
-          margin-left: 15px;
-          margin-right: 15px;
+          margin: auto;
+          width:100%;
           &:hover
           {
             color:$dark-color;

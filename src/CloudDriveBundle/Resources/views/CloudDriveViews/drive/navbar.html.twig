@@ -9,11 +9,11 @@
         <div class="collapse navbar-collapse" id="burger">
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, {{ app.user.username }}
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Personal</a></li>
-                    <li><a href="#">Info</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
                     <li><a href="#">Settings</a></li>
                 </ul>
             </li>
