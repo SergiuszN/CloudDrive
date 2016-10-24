@@ -1,7 +1,7 @@
 # CloudDrive
 Projekt Grupowy AM Szczecin
 
-**Creators: ** Dominik Pięta, Kacper Gała, Sergiusz Nikolenko.
+**Creators:** Dominik Pięta, Kacper Gała, Sergiusz Nikolenko.
 
 ## Requirements 
 1. php 5.6+
@@ -22,7 +22,7 @@ Projekt Grupowy AM Szczecin
 6. npm run watch
 7. php app/console doctrine:schema:update --force
 8. chmod -R g+rw .
-9. chmod -R -R a+rw app/cache
+9. chmod -R a+rw app/cache
 10. chown a+rw www-data:www-data .
 11. open http://localhost/CloudDrive/app_dev.php
 ```
