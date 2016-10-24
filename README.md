@@ -16,8 +16,8 @@ Projekt Grupowy AM Szczecin
 0. cd /var/www/html
 1. git clone https://github.com/SergiuszN/CloudDrive.git
 2. cd CloudDrive
-3. composer install
-4. create db with name typed during composer install
+3. create db with name typed during composer install
+4. composer install
 5. npm install
 6. npm run watch
 7. php app/console doctrine:schema:update --force
