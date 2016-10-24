@@ -93,12 +93,14 @@ class ApiController extends Controller
         $em = $this->getDoctrine()->getManager();
         /* @var ShareLink $shareLink */
         $shareLink = $em->getRepository('CloudDriveBundle:ShareLink')->getOpenLink($path);
+
         if ($shareLink != null) {
             $path = $shareLink->getPath();
+            $directories = $this->getBaseDirectories($path, $shareLink->getUser());
+        } else {
+            $directories = $this->getBaseDirectories($path);
         }
-
-        $directories = $this->getBaseDirectories($path, $shareLink->getUser());
-
+        
         if ($type == 'dir') {
             $zip = new FlxZipArchive();
             $tempArchive = $zip->createTempFolderArchive($directories->pathToOpen);
