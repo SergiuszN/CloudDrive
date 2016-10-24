@@ -12,8 +12,8 @@ Projekt Grupowy AM Szczecin
 6. git
 
 ## Instalation
-~~
-2. cd /var/www/html
+```
+0. cd /var/www/html
 1. git clone https://github.com/SergiuszN/CloudDrive.git
 2. cd CloudDrive
 3. composer install
@@ -25,4 +25,4 @@ Projekt Grupowy AM Szczecin
 9. chmod -R -R a+rw app/cache
 10. chown a+rw www-data:www-data .
 11. open http://localhost/CloudDrive/app_dev.php
-~~
+```
