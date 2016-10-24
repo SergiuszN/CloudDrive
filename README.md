@@ -1,7 +1,7 @@
 # CloudDrive
 Projekt Grupowy AM Szczecin
 
-*Creators: * Dominik Pięta, Kacper Gała, Sergiusz Nikolenko.
+**Creators: ** Dominik Pięta, Kacper Gała, Sergiusz Nikolenko.
 
 ## Requirements 
 1. php 5.6+
