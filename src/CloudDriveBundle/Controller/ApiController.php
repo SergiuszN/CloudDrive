@@ -210,7 +210,11 @@ class ApiController extends Controller
         $path = str_replace('!', '..', $path);
 
         // get user directory
-        $userDir = realpath(__DIR__ . '/../../../uploads/user' . $user->getId()) . '/';
+        $temp = dirname(__FILE__) . '/../../../uploads/user' . $user->getId();
+        if (!file_exists($temp)) {
+            mkdir($temp);
+        }
+        $userDir = realpath($temp) . '/';
         $userDir = str_replace('\\', '/', $userDir);
 
         // get path to open
